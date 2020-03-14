@@ -13,7 +13,7 @@ import PanGesture from "./src/screens/5PanGesture";
 import Decay from "./src/screens/6Decay";
 import Spring from "./src/screens/7Spring";
 import Swiping from "./src/screens/8Swiping";
-import ThreeDAnimationChallege from "./src/screens/ThreeDAnimationChallenge";
+import ThreeDAnimationChallenge from "./src/screens/ThreeDAnimationChallenge";
 
 const Stack = createStackNavigator();
 
@@ -34,8 +34,8 @@ function App() {
         <Stack.Screen name="Spring" component={Spring} />
         <Stack.Screen name="Swiping" component={Swiping} />
         <Stack.Screen
-          name="ThreeDAnimationChallege"
-          component={ThreeDAnimationChallege}
+          name="ThreeDAnimationChallenge"
+          component={ThreeDAnimationChallenge}
         />
       </Stack.Navigator>
     </NavigationContainer>

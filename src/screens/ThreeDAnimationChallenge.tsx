@@ -1,14 +1,10 @@
 import * as React from "react";
-import { View, Text } from "react-native";
+import Menu from "../components/ThreeDAnimationChallenge";
 
 export interface ThreeDAnimationChallengeProps {}
 
 export function ThreeDAnimationChallenge(props: ThreeDAnimationChallengeProps) {
-  return (
-    <View>
-      <Text>Swiping</Text>
-    </View>
-  );
+  return <Menu />;
 }
 
 export default ThreeDAnimationChallenge;

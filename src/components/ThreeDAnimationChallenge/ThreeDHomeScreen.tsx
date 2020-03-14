@@ -1,5 +1,5 @@
 import React from "react";
-import { Dimensions, StyleSheet, Text, ViewStyle } from "react-native";
+import { Dimensions, StyleSheet, Text, ViewStyle, View } from "react-native";
 import { bInterpolate } from "react-native-redash";
 import Animated from "react-native-reanimated";
 
@@ -28,38 +28,37 @@ const styles = StyleSheet.create({
 });
 
 interface ScreenProps {
-  open: Animated.Value<0 | 1>;
+  onPress: () => void;
   transition: Animated.Node<number>;
 }
 
-export default ({ open, transition }: ScreenProps) => {
+export default ({ transition, onPress }: ScreenProps) => {
   const rotateY = bInterpolate(transition, 0, -alpha);
   const scale = bInterpolate(transition, 1, 0.9);
   const opacity = bInterpolate(transition, 0, 0.5);
   const borderRadius = bInterpolate(transition, 0, 20);
+
   return (
     <>
       <Animated.View
-        style={
-          ([
-            styles.container,
-            {
-              borderRadius,
-              transform: [
-                perspective,
-                { translateX: width / 2 },
-                { rotateY },
-                { translateX: -width / 2 },
-                { scale }
-              ]
-            }
-          ] as unknown) as ViewStyle
-        }
+        style={[
+          styles.container,
+          {
+            borderRadius,
+            transform: [
+              perspective,
+              { translateX: width / 2 },
+              { rotateY },
+              { translateX: -width / 2 },
+              { scale }
+            ]
+          }
+        ]}
       >
-        <TouchableOpacity onPress={() => open.setValue(1)}>
-          <Animated.View style={styles.button}>
+        <TouchableOpacity onPress={onPress}>
+          <View style={styles.button}>
             <Text style={styles.label}>Show Menu</Text>
-          </Animated.View>
+          </View>
         </TouchableOpacity>
       </Animated.View>
       <Animated.View
